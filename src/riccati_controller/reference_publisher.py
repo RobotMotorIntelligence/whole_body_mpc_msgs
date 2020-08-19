@@ -7,7 +7,7 @@ from riccati_controller import riccati_gain_interface as rg_iface
 class ReferencePublisher():
     def __init__(self, topic, model):
         # Initializing the publisher
-        self.pub = rospy.Publisher(topic, RiccatiControllerReference, queue_size=1)
+        self.pub = rospy.Publisher(topic, RiccatiControllerReference, queue_size=10)
         self.wb_iface = wb_iface.WholeBodyStateInterface(model)
         self.rg_iface = rg_iface.RiccatiGainInterface(2 * model.nv, model.njoints - 2)
         self.msg = RiccatiControllerReference()
