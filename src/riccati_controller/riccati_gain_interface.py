@@ -1,6 +1,6 @@
 import numpy as np
 from riccati_controller.msg import RiccatiGain
-
+import copy
 
 class RiccatiGainInterface():
     def __init__(self, nx, nu):
@@ -9,7 +9,7 @@ class RiccatiGainInterface():
         self.msg.nx = nx
         self.msg.nu = nu
         self.msg.data = [None] * (nx * nu)
-        self.K = np.array([nu, nx])
+        self.K = np.zeros([nu, nx])
     
     def writeToMessage(self, K):
         if K.shape[0] is not self.msg.nu:
@@ -18,10 +18,10 @@ class RiccatiGainInterface():
         if K.shape[1] is not self.msg.nx:
             print("Couldn't convert the Riccati gain into a message since nx is not consistent")
             return
-        for i in range(self.msg.gain.nu):
-            for j in range(self.msg.gain.nx):
-                self.msg.gain.data[i * self.msg.gain.nx + j] = K[i, j]
-        return self.msg
+        for i in range(self.msg.nu):
+            for j in range(self.msg.nx):
+                self.msg.data[i * self.msg.nx + j] = K[i, j]
+        return copy.deepcopy(self.msg)
 
     def writeFromMessage(self, msg):
         if msg.nu is not self.K.shape[0]:
@@ -30,6 +30,7 @@ class RiccatiGainInterface():
         if msg.nx is not self.K.shape[1]:
             print("Couldn't convert the message into a Riccati gain since nx is not consistent")
             return
-        for i in range(msg.gain.nu):
-            for j in range(msg.gain.nx):
-                self.K[i, j] = msg.gain.data[i * msg.gain.nx + j]
+        for i in range(msg.nu):
+            for j in range(msg.nx):
+                self.K[i, j] = msg.data[i * msg.nx + j]
+        return copy.deepcopy(self.K)
