@@ -1,6 +1,6 @@
 import rospy
 from riccati_controller.msg import RiccatiControllerReference
-from state_msgs import whole_body_interface as wb_iface
+from whole_body_state_msgs import whole_body_interface as wb_iface
 from riccati_controller import riccati_gain_interface as rg_iface
 
 

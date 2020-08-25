@@ -16,13 +16,13 @@
   <build_depend>rospy</build_depend>
   <build_depend>message_generation</build_depend>
   <build_depend>std_msgs</build_depend>
-  <build_depend>state_msgs</build_depend>
+  <build_depend>whole_body_state_msgs</build_depend>
   
   <exec_depend>roscpp</exec_depend>
   <exec_depend>rospy</exec_depend>
   <exec_depend>message_runtime</exec_depend>
   <exec_depend>std_msgs</exec_depend>
-  <exec_depend>state_msgs</exec_depend>
+  <exec_depend>whole_body_state_msgs</exec_depend>
   <exec_depend>python-numpy</exec_depend>
 <!--  <exec_depend>python-pinocchio</exec_depend> -->
 

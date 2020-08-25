@@ -24,7 +24,7 @@ FIND_PACKAGE(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
-  state_msgs
+  whole_body_state_msgs
   message_generation)
 
 catkin_python_setup()
@@ -39,11 +39,11 @@ add_message_files(
 generate_messages(
    DEPENDENCIES
    std_msgs
-   state_msgs)
+   whole_body_state_msgs)
 
 
 # Define catkin dependencies
-catkin_package(CATKIN_DEPENDS  roscpp message_runtime std_msgs state_msgs)
+catkin_package(CATKIN_DEPENDS  roscpp message_runtime std_msgs whole_body_state_msgs)
 
 
 # Installation src
