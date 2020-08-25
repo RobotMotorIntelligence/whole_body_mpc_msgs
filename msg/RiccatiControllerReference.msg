@@ -9,6 +9,6 @@
 
 Header header
 
-whole_body_state_msgs/WholeBodyState reference
-RiccatiGain gain
+whole_body_state_msgs/WholeBodyState[] reference
+RiccatiGain[] gain
 
