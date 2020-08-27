@@ -2,6 +2,7 @@ import numpy as np
 from riccati_controller.msg import RiccatiGain
 import copy
 
+
 class RiccatiGainInterface():
     def __init__(self, nx, nu):
         self.msg = RiccatiGain()
@@ -10,7 +11,7 @@ class RiccatiGainInterface():
         self.msg.nu = nu
         self.msg.data = [None] * (nx * nu)
         self.K = np.zeros([nu, nx])
-    
+
     def writeToMessage(self, K):
         if K.shape[0] is not self.msg.nu:
             print("Couldn't convert the Riccati gain into a message since nu is not consistent")

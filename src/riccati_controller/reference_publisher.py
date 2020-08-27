@@ -48,6 +48,7 @@ class ReferencePublisher():
         self._msg.reference = []
         self._msg.gain = []
         for i in range(len(ts)):
-            self._msg.reference.append(self._wb_iface.writeToMessage(ts[i], qs[i], vs[i], us[i], ps[i], pds[i], fs[i], ss[i]))
+            self._msg.reference.append(
+                self._wb_iface.writeToMessage(ts[i], qs[i], vs[i], us[i], ps[i], pds[i], fs[i], ss[i]))
             self._msg.gain.append(self._rg_iface.writeToMessage(Ks[i]))
         self._pub.publish(self._msg)
