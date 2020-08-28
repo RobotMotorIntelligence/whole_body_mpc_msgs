@@ -4,9 +4,9 @@ import copy
 
 
 class RiccatiGainInterface():
-    def __init__(self, nx, nu):
+    def __init__(self, nx, nu, frame_id="world"):
         self._msg = RiccatiGain()
-        self._msg.header.frame_id = "world"
+        self._msg.header.frame_id = frame_id
         self._msg.nx = nx
         self._msg.nu = nu
         self._msg.data = [None] * (nx * nu)
