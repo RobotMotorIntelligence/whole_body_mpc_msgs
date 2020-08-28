@@ -5,13 +5,13 @@ from .riccati_gain_interface import RiccatiGainInterface
 
 
 class ReferencePublisher():
-    def __init__(self, topic, model):
+    def __init__(self, topic, model, frame_id="world", queue_size=10):
         # Initializing the publisher
-        self._pub = rospy.Publisher(topic, RiccatiControllerReference, queue_size=10)
-        self._wb_iface = WholeBodyStateInterface(model)
+        self._pub = rospy.Publisher(topic, RiccatiControllerReference, queue_size=queue_size)
+        self._wb_iface = WholeBodyStateInterface(model, frame_id)
         self._rg_iface = RiccatiGainInterface(2 * model.nv, model.njoints - 2)
         self._msg = RiccatiControllerReference()
-        self._msg.header.frame_id = "world"
+        self._msg.header.frame_id = frame_id
 
     def publish(self, ts, qs, vs, us, ps=dict(), pds=dict(), fs=dict(), ss=dict(), Ks=None):
         self._msg.header.stamp = rospy.Time(ts[0])
