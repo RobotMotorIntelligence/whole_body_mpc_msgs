@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>riccati_controller</name>
+  <name>whole_body_mpc_msgs</name>
   <version>0.0.1</version>
   <description>
-    Message and service data structures for riccati controller
+    Message and service data structures produced by the whole-body MPC controller
   </description>
 
   <author email="carlos.mastalli@ed.ac.uk">Carlos Mastalli</author>

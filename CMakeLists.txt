@@ -1,9 +1,9 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.1)
-PROJECT(riccati_controller)
+PROJECT(whole_body_mpc_msgs)
 
 # Set up project properties
-SET(PROJECT_NAME riccati_controller)
-SET(PROJECT_DESCRIPTION "Riccati controller and its messages")
+SET(PROJECT_NAME whole_body_mpc_msgs)
+SET(PROJECT_DESCRIPTION "Whole-body MPC messages")
 
 # Print initial message
 MESSAGE(STATUS "${PROJECT_DESCRIPTION}, version ${PROJECT_VERSION}")
@@ -33,8 +33,8 @@ catkin_python_setup()
 add_message_files(
    DIRECTORY msg
    FILES
-    RiccatiGain.msg
-    RiccatiControllerReference.msg)
+    StateFeedbackGain.msg
+    WholeBodyMpcReference.msg)
 
 generate_messages(
    DEPENDENCIES

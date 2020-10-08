@@ -1,4 +1,4 @@
-# This message describes the Riccati gain (or state feedback gain).
+# This message describes the state feedback gain.
 #
 # A Riccati gains is used to apply state feedback control.
 # Generally speaking, this is a matrix defined by the dimension of state and control spaces.
