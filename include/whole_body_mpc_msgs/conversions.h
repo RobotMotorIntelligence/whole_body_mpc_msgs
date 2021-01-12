@@ -40,12 +40,12 @@ namespace whole_body_mpc_msgs {
  * @param msg whole_body_mpc_msgs::StateFeedbackGain (reference, will be modified)
  * @param K state feedback gain (size nu * nx)
  */
-void toMsg(whole_body_mpc_msgs::StateFeedbackGain &msg, const Eigen::MatrixXd &K) {
+static inline void toMsg(whole_body_mpc_msgs::StateFeedbackGain &msg, const Eigen::MatrixXd &K) {
   msg.nu = static_cast<uint32_t>(K.rows());
   msg.nx = static_cast<uint32_t>(K.cols());
   msg.data.resize(msg.nx * msg.nu);
-  for (auto i = 0; i < msg.nu; ++i)
-    for (auto j = 0; j < msg.nx; ++j) msg.data[i * msg.nx + j] = K(i, j);
+  for (uint32_t i = 0; i < msg.nu; ++i)
+    for (uint32_t j = 0; j < msg.nx; ++j) msg.data[i * msg.nx + j] = K(i, j);
 }
 
 /**
@@ -55,7 +55,7 @@ void toMsg(whole_body_mpc_msgs::StateFeedbackGain &msg, const Eigen::MatrixXd &K
  * @param msg whole_body_mpc_msgs::StateFeedbackGain
  * @param K state feedback gain (size nu * nx) (reference, will be modified)
  */
-void fromMsg(const whole_body_mpc_msgs::StateFeedbackGain &msg, Eigen::Ref<Eigen::MatrixXd> K) {
+static inline void fromMsg(const whole_body_mpc_msgs::StateFeedbackGain &msg, Eigen::Ref<Eigen::MatrixXd> K) {
   if (K.rows() != msg.nu || K.cols() != msg.nx) {
     K.resize(msg.nu, msg.nx);
   }
