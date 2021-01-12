@@ -35,7 +35,7 @@
 namespace whole_body_mpc_msgs {
 class StateFeedbackGainInterface {
  public:
-  StateFeedbackGainInterface(const std::size_t nx, const std::size_t nu, const std::string &frame_id = "world")
+  StateFeedbackGainInterface(const std::size_t nx, const std::size_t nu, const std::string &frame_id = "odom")
       : nx_(nx), nu_(nu), K_(Eigen::MatrixXd(nu, nx)) {
     // Setup message
     msg_.header.frame_id = frame_id;
