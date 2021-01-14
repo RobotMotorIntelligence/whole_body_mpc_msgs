@@ -57,7 +57,8 @@ static inline void toMsg(whole_body_mpc_msgs::StateFeedbackGain &msg, const Eige
  */
 static inline void fromMsg(const whole_body_mpc_msgs::StateFeedbackGain &msg, Eigen::Ref<Eigen::MatrixXd> K) {
   if (K.rows() != msg.nu || K.cols() != msg.nx) {
-    throw std::invalid_argument("The dimensions of K need to be: (" + std::to_string(msg.nu) + ", " + std::to_string(msg.nx) + ").");
+    throw std::invalid_argument("The dimensions of K need to be: (" + std::to_string(msg.nu) + ", " +
+                                std::to_string(msg.nx) + ").");
   }
   if (msg.data.size() != msg.nu * msg.nx) {
     throw std::invalid_argument("Message incorrect - size of data does not match given dimensions (nu,nx)");
