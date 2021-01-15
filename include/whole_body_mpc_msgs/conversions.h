@@ -23,8 +23,11 @@ static inline void toMsg(whole_body_mpc_msgs::StateFeedbackGain &msg, const Eige
   msg.nu = static_cast<uint32_t>(K.rows());
   msg.nx = static_cast<uint32_t>(K.cols());
   msg.data.resize(msg.nx * msg.nu);
-  for (uint32_t i = 0; i < msg.nu; ++i)
-    for (uint32_t j = 0; j < msg.nx; ++j) msg.data[i * msg.nx + j] = K(i, j);
+  for (uint32_t i = 0; i < msg.nu; ++i) {
+    for (uint32_t j = 0; j < msg.nx; ++j) {
+      msg.data[i * msg.nx + j] = K(i, j);
+    }
+  }
 }
 
 /**
