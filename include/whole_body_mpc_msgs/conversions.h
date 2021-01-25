@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 // BSD 3-Clause License
 //
-// Copyright (C) 2021, University of Oxford
+// Copyright (C) 2021, University of Oxford, University of Edinburgh
 // Copyright note valid unless otherwise stated in individual files.
 // All rights reserved.
 ///////////////////////////////////////////////////////////////////////////////
@@ -10,14 +10,14 @@
 #define WHOLE_BODY_MPC_MSGS_CONVERSIONS_H_
 
 #include <Eigen/Core>
-#include <whole_body_mpc_msgs/StateFeedbackGain.h>
+#include "whole_body_mpc_msgs/StateFeedbackGain.h"
 
 namespace whole_body_mpc_msgs {
 /**
  * @brief Conversion of Eigen::MatrixXd to message for a given whole_body_mpc_msgs::StateFeedbackGain message reference
  *
- * @param[out] msg whole_body_mpc_msgs::StateFeedbackGain (reference, will be modified)
- * @param[in] K state feedback gain (size nu * nx)
+ * @param[out] msg  ROS message that contains the state feedback gain
+ * @param[in] K     State feedback gain (size nu * nx)
  */
 static inline void toMsg(whole_body_mpc_msgs::StateFeedbackGain &msg, const Eigen::MatrixXd &K) {
   msg.nu = static_cast<uint32_t>(K.rows());
@@ -34,8 +34,8 @@ static inline void toMsg(whole_body_mpc_msgs::StateFeedbackGain &msg, const Eige
  * @brief Conversion of a state feedback gain from a whole_body_mpc_msgs::StateFeedbackGain message to an
  * Eigen::MatrixXd
  *
- * @param[in] msg whole_body_mpc_msgs::StateFeedbackGain
- * @param[out] K state feedback gain (size nu * nx) (reference, will be modified)
+ * @param[in] msg  ROS message that contains the state feedback gain
+ * @param[out] K   State feedback gain (size nu * nx) (reference, will be modified)
  */
 static inline void fromMsg(const whole_body_mpc_msgs::StateFeedbackGain &msg, Eigen::Ref<Eigen::MatrixXd> K) {
   if (K.rows() != msg.nu || K.cols() != msg.nx) {
