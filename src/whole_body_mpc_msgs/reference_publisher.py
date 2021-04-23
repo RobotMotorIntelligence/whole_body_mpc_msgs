@@ -1,6 +1,6 @@
 import rospy
 from whole_body_mpc_msgs.msg import WholeBodyMpcReference
-from whole_body_state_msgs.whole_body_trajectory_publisher import WholeBodyStateInterface
+from whole_body_state_conversions.whole_body_trajectory_publisher import WholeBodyStateInterface
 from .state_feedback_gain_interface import StateFeedbackGainInterface
 
 
