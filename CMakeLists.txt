@@ -25,8 +25,15 @@ catkin_python_setup()
 add_message_files(
   DIRECTORY msg
   FILES
+   ContactSchedule.msg
    StateFeedbackGain.msg
    WholeBodyMpcReference.msg
+)
+
+# Define service files
+add_service_files(DIRECTORY srv
+  FILES
+  AddContactSchedulesToQueue.srv
 )
 
 generate_messages(
