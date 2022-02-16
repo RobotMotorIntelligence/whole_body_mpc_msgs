@@ -26,6 +26,7 @@ add_message_files(
   DIRECTORY msg
   FILES
    ContactSchedule.msg
+   MpcStatistics.msg
    StateFeedbackGain.msg
    WholeBodyMpcReference.msg
 )
