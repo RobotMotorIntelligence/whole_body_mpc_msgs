@@ -2,10 +2,12 @@
 
 time stamp
 
-uint16 num_iterations
-float32 problem_update_time
+uint16 iterations
+float32 total_time
 float32 solve_time
 float32 cost
-float32 regularization_rate
+float32 regularization
 float32 step_length
-float32 feasibility
+float32 dynamic_feasibility
+float32 equality_infeasibility
+float32 inequality_infeasibility
