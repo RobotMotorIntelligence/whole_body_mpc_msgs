@@ -1,4 +1,4 @@
-whole_body_mpc_msgs/ContactSchedule[] contact_schedule
+whole_body_mpc_msgs/GaitGeneratorSchedule[] contact_schedule
 ---
 bool success   # indicate successful run of adding contact schedules to MPC
 string message # informational, e.g. for error messages

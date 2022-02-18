@@ -1,6 +1,7 @@
-# This message describes a contact schedule
+# This message describes a contact sequence to be generated
+# with a gait generator.
 #
-# A contact schedule is defined by the start and end contact
+# A gait generator schedule is defined by the start and end contact
 # configuration for all limbs.
 
 std_msgs/Header header
@@ -35,10 +36,12 @@ float64 t_ss
 
 # t_ds = Duration of ??? in seconds. Needs to be a
 # multiple of the MPC's dt
+# This property is not defined for bipeds.
 float64 t_uds
 
 # t_ds = Duration of ??? in seconds. Needs to be a
 # multiple of the MPC's dt
+# This property is not defined for bipeds.
 float64 t_uss
 
 # Step height at the apex of the swing trajectory in m
