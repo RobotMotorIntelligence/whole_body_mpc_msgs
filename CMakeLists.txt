@@ -25,6 +25,9 @@ catkin_python_setup()
 add_message_files(
   DIRECTORY msg
   FILES
+   ContactManager.msg
+   ContactPhase.msg
+   ContactSchedule.msg
    GaitGeneratorSchedule.msg
    MpcStatistics.msg
    StateFeedbackGain.msg
