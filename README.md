@@ -19,4 +19,6 @@ The whole_body_mpc_msgs is a catkin project which can be built as:
 
 ### :writing_hand: Written by
 
-- [Carlos Mastalli](https://cmastalli.github.io/), The University of Edinburgh :uk:
+- [Carlos Mastalli](https://romilab.org), Heriot-Watt University :uk:
+
+and maintained by the Robot Motor Intelligence (RoMI) lab.
